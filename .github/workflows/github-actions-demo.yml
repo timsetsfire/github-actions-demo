@@ -17,3 +17,5 @@ jobs:
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - run: echo ${{secrets.WANDB_API_KEY}}
       - run: python --version
+      - run: pip install wandb -qqq
+      - run: python -m "import wandb; wandb.login()"

@@ -18,4 +18,4 @@ jobs:
       - run: echo ${{secrets.WANDB_API_KEY}}
       - run: python --version
       - run: pip install wandb -qqq
-      - run: python -c "import os; import wandb; wandb.login(key = os.environ["WANDB_API_KEY"])"
+      - run: python -c "import os; import wandb; wandb.login(key = ${{secrets.API_KEY}})"

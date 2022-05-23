@@ -12,7 +12,9 @@ for r in sweep.runs:
  temp_dict["run_id"] = r.id
  temp_dict["run_name"] = r.name
  temp_data.append( temp_dict)
-df = pd.DataFrame(temp_data)
-df.set_index("run_id", inplace = True)
-best_run_id = sweep.best_run().id
-print(df.loc[best_run_id])
+# df = pd.DataFrame(temp_data)
+# df.set_index("run_id", inplace = True)
+# best_run_id = sweep.best_run().id
+# print(df.loc[best_run_id])
+for run in temp_data:
+    print(run)

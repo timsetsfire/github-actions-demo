@@ -15,10 +15,7 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+      - run: echo ${{secrets.WANDB_API_KEY}}
       - run: python --version
       - run: pip install wandb -qqq
-      - name: my first action
-        env: 
-          WANDB_API_KEY: $${secrets.WANDB_API_KEY}}
-        run: wandb login $${secrets.WANDB_API_KEY}}
-
+      - run: wandb login ${{secrets.WANDB_API_KEY}}

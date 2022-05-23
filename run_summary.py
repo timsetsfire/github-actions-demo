@@ -1,4 +1,3 @@
-import pandas as pd
 import wandb
 api = wandb.Api()
 entity, project, sweep_id = "tim-w", "pytorch-sweeps-demo", "zc4rne6j"

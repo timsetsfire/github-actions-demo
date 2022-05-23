@@ -19,3 +19,4 @@ jobs:
       - run: python --version
       - run: pip install wandb -qqq
       - run: wandb login ${{secrets.WANDB_API_KEY}}
+      - run: python run_summary.py

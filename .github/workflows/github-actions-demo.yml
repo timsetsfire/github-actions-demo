@@ -4,9 +4,6 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - name: my first action
-        env: 
-          WANDB_API_KEY = $${secrets.WANDB_API_KEY}}
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
@@ -20,4 +17,7 @@ jobs:
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - run: python --version
       - run: pip install wandb -qqq
-      - run: wandb login $WANDB_API_KEY
+      - name: my first action
+        env: 
+          WANDB_API_KEY = $${secrets.WANDB_API_KEY}}
+        run: wandb login $WANDB_API_KEY

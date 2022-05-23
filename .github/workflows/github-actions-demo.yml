@@ -19,5 +19,5 @@ jobs:
       - run: pip install wandb -qqq
       - name: my first action
         env: 
-          WANDB_API_KEY = $${secrets.WANDB_API_KEY}}
+          WANDB_API_KEY: $${secrets.WANDB_API_KEY}}
         run: wandb login $WANDB_API_KEY

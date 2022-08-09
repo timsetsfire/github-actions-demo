@@ -1,9 +1,9 @@
 import wandb
 import pandas as pd
 api = wandb.Api()
-entity, project = "tim-w", "MNIST-Training"
+entity, project_name = "tim-w", "MNIST-Training"
 ## either pull runs for an entire project
-runs = [r for r in api.runs(f"tim-w/MNIST-Training") if r.job_type == "training"]
+runs = [r for r in api.runs(f"{entity}/{project_name}") if r.job_type == "training" or "sweep" in r.name]
 ## or pull runs for a particular sweep
 temp_data = []
 for r in runs:

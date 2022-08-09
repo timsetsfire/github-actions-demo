@@ -8,4 +8,6 @@ kernels:
 - 32
 learning_rate: 0.05
 run_id: x1vcf30e
+project_name: MNIST-Training
+entity: tim-w
 usage_string: tim-w/MNIST-Training/x1vcf30e-mnist-model:v0

@@ -1,6 +1,14 @@
 import wandb
 import pandas as pd
+import logging
 from convnet import *
+
+logging.basicConfig(
+        format="{} - %(levelname)s - %(asctime)s - %(message)s".format(__name__),
+)
+logger = logging.getLogger("git-action-example")
+logger.setLevel("INFO")
+
 api = wandb.Api()
 entity, project_name = "tim-w", "MNIST-Training"
 device = torch.device("cpu")

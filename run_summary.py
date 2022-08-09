@@ -24,6 +24,9 @@ with wandb.init(project = project_name, name = "best_model_eval", entity = entit
   
   config = wandb.config 
   
+  criterion = nn.CrossEntropyLoss()
+  optimizer = torch.optim.Adam(model.parameters(), lr=config.learning_rate)
+  
   model_artifact = [a for a in best_run.logged_artifacts() if a.type == "model"].pop()
   model_artifact_directory = model_artifact.download()
   model_dir = model_artifact.download()

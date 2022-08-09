@@ -1,4 +1,5 @@
 import wandb
+import pandas as pd
 api = wandb.Api()
 entity, project = "tim-w", "MNIST-Training"
 ## either pull runs for an entire project

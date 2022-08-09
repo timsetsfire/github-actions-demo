@@ -1,5 +1,6 @@
 import wandb
 import pandas as pd
+from convnet import *
 api = wandb.Api()
 entity, project_name = "tim-w", "MNIST-Training"
 ## either pull runs for an entire project

@@ -3,6 +3,7 @@ import pandas as pd
 from convnet import *
 api = wandb.Api()
 entity, project_name = "tim-w", "MNIST-Training"
+device = torch.device("cpu")
 ## either pull runs for an entire project
 runs = [r for r in api.runs(f"{entity}/{project_name}") if r.job_type == "training" or "sweep" in r.name]
 ## or pull runs for a particular sweep

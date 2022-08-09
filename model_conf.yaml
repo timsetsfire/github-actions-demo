@@ -1,0 +1,11 @@
+architecture: CNN
+batch_size: 128
+classes: 10
+dataset: MNIST
+epochs: 5
+kernels:
+- 16
+- 32
+learning_rate: 0.05
+run_id: x1vcf30e
+usage_string: tim-w/MNIST-Training/x1vcf30e-mnist-model:v0

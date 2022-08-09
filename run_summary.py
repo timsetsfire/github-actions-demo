@@ -32,7 +32,7 @@ logger.setLevel("INFO")
 # best_run = [r for r in runs if r.id == best_run_id].pop()
 project_name = model_config["project_name"]
 entity = model_config["entity"]
-
+device = torch.device("cpu")
 with wandb.init(project = project_name, name = "best_model_eval", entity = entity, job_type = "evaluation", config = model_config) as run:
   
   config = wandb.config 

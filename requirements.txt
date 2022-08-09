@@ -1,0 +1,4 @@
+wandb
+torch==1.12.0
+torchvision==0.13.0
+tensorboard==2.8.0

@@ -24,19 +24,19 @@ with wandb.init(project = project_name, name = "best_model_eval", entity = entit
   
   config = wandb.config 
   
+  ## load model
+  model_artifact = [a for a in best_run.logged_artifacts() if a.type == "model"].pop()
+  model_artifact_directory = model_artifact.download()
+  model = ConvNet(wandb.config.kernels, wandb.config.classes)
+  model.load_state_dict(torch.load(model_artifact.file()))
   criterion = nn.CrossEntropyLoss()
   optimizer = torch.optim.Adam(model.parameters(), lr=config.learning_rate)
   
-  model_artifact = [a for a in best_run.logged_artifacts() if a.type == "model"].pop()
-  model_artifact_directory = model_artifact.download()
-  model_dir = model_artifact.download()
-  model = ConvNet(wandb.config.kernels, wandb.config.classes)
-  model.load_state_dict(torch.load(model_artifact.file()))
   
   ##
   dataset_artifact = run.use_artifact(f"{entity}/{project_name}/mnist-test-data:latest")
   dataset_dir = dataset_artifact.download("./data")
-  test = torch.load(f"{dataset_dir}/test_data.pt")
+  test = torch.load(dataset_artifact.file())
   test_loader = make_loader(test, batch_size=config.batch_size)
   
   
